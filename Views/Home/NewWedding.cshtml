@@ -1,0 +1,48 @@
+@{
+    ViewData["Title"] = "New";
+}
+@model Wedding
+<div class="row">
+  <div class="col-8">
+    <span class="display-4">Plan Your Wedding</span>
+  </div>
+  <div class="col-4">
+    <a style="margin-left: 60px; margin-top:20px; display: inline-block;" href="/dashboard">Dashboard</a>
+    <a style="margin-left: 30px; margin-top:20px; display: inline-block;" href="/logout">Log Out</a>
+  </div>
+</div>
+
+<div class="mt-5" style="width: 600px;">
+  <form asp-action="CreateWedding" asp-controller="Home" method="POST">
+    <div class="form-group row">
+      <label asp-for="WedderOne" class="col-sm-3 col-form-label">Wedder One</label>
+      <div class="col-sm-9">
+        <span class="text-danger" asp-validation-for="WedderOne"></span>
+        <input asp-for="WedderOne" type="text" class="form-control" id="WedderOne">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label asp-for="WedderTwo" class="col-sm-3 col-form-label">Wedder Two</label>
+      <div class="col-sm-9">
+        <span class="text-danger" asp-validation-for="WedderTwo"></span>
+        <input asp-for="WedderTwo" type="text" class="form-control" id="WedderTwo">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label asp-for="WeddingDate" class="col-sm-3 col-form-label">Date</label>
+      <div class="col-sm-9">
+        <span class="text-danger" asp-validation-for="WeddingDate"></span>
+        <input asp-for="WeddingDate" type="date" class="form-control" id="WeddingDate">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label asp-for="Address" class="col-sm-3 col-form-label">Wedding Address</label>
+      <div class="col-sm-9">
+        <span class="text-danger" asp-validation-for="Address"></span>
+        <input asp-for="Address" type="text" class="form-control" id="Address">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-dark btn-lg mt-3">Create</button>
+  </form>
+
+</div>

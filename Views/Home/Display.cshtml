@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Display";
+    <!-- Wedding wed = ViewBag.wed; -->
+}
+@model Wedding
+<div class="row">
+  <div class="col-8">
+    <span class="display-4">@Model.WedderOne and @Model.WedderTwo's Wedding</span>
+  </div>
+  <div class="col-4">
+    <a style="margin-left: 60px; margin-top:20px; display: inline-block;" asp-action="Dashboard" asp-controller="Home">Dashboard</a>
+    <a style="margin-left: 30px; margin-top:20px; display: inline-block;" asp-action="Logout" asp-controller="Home">Log Out</a>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-6">
+    <h3>Date:  @Convert.ToDateTime(Model.WeddingDate).ToString("MMM dd yyyy")</h3>
+    <h3>Guest:</h3>
+    <ul style="list-style: none;">
+      @{
+        @foreach(var guest in Model.UserRsvp)
+        {
+          <li><h5>@guest.User.FirstName</h5></li> 
+          
+        }
+      }
+    </ul>
+  </div>
+  <div class="col-6">
+    <div>
+      <img style="width: 100%; display: block;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOBim9wy4yvoqYXmTLk_PSZBDep6rqfncj8QQgEsauOoqIpz237Q" alt="map">
+    </div>
+  </div>
+  
+</div>
